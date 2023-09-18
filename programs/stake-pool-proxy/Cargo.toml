@@ -1,0 +1,30 @@
+[package]
+name = "stake-pool-proxy"
+version = "0.1.0"
+description = "Proxy utils for the stake pool program"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "stake_pool_proxy"
+
+[features]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+cpi = ["no-entrypoint"]
+default = []
+mainnet = []
+
+[dependencies]
+anchor-lang = "=0.26.0"
+anchor-spl = "=0.26.0"
+blake3 = "=1.3.3"
+constant_time_eq = "=0.2.5"
+hashbrown = "0.11.2"
+indexmap = "1.9.3"
+solana-program = "=1.14.13"
+spl-stake-pool = { git = "https://github.com/solana-labs/solana-program-library", rev = "3db53e278b543a040d3c970797b6be6f9ea5aef9", package = "spl-stake-pool", features = ["no-entrypoint"] }
+toml_datetime = "=0.6.1"
+toml_edit = "=0.19.0"
+winnow = "=0.3.0"
